@@ -1,0 +1,8 @@
+{{ form_start(form) }}
+
+<div>
+	<label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+	{{ form_widget(form) }}
+	<button class="btn">{{ button_label|default('Save') }}</button>
+</div>
+{{ form_end(form) }}
