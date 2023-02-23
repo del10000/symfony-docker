@@ -17,6 +17,32 @@
 			{{ encore_entry_script_tags('app') }}
 		{% endblock %}
 	</head>
-	<body class="px-10 py-5"> {% block body %}{% endblock %}
+	<body>
+		<nav class="bg-gray-800">
+			<div class="mx-auto px-2 sm:px-6 lg:px-8">
+				<div class="relative flex h-16 items-center justify-between">
+					<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+						<div class="hidden sm:ml-6 sm:block">
+							<div class="flex space-x-4">
+								<a href="/materiel" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Materiel</a>
+
+								<a href="/pret" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Pret</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="sm:hidden" id="mobile-menu">
+				<div class="space-y-1 px-2 pt-2 pb-3">
+					<a href="/materiel" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Materiel</a>
+
+					<a href="/pret" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Pret</a>
+				</div>
+			</div>
+		</nav>
+
+		<div class="px-6 lg:px-8 py-5"> {% block body %}{% endblock %}
+			</div>
 		</body>
 	</html>
