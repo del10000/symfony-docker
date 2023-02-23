@@ -4,10 +4,10 @@
 {% endblock %}
 
 {% block body %}
-	<div class="px-6 lg:px-8 py-5">
+	<div>
 		<div class="sm:flex sm:items-center">
 			<div class="sm:flex-auto">
-				<h1 class="text-xl font-semibold text-gray-900">Materiel index</h1>
+				<h1 class="text-xl font-semibold text-gray-900">Pret index</h1>
 			</div>
 			<div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
 				<a href="{{ path('app_pret_new') }}" class="block rounded-md bg-indigo-600 py-1.5 px-3 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Crée un pret</a>
@@ -44,6 +44,7 @@
 									<td class="relative whitespace-nowrap py-4 pl-3 pr-6 text-sm font-medium sm:pr-0">
 										<a href="{{ path('app_pret_show', {'id': pret.id}) }}" class="text-indigo-600 hover:text-indigo-900">Show</a>
 										<a href="{{ path('app_pret_edit', {'id': pret.id}) }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+										<a href="{{ path('app_pret_rappel', {'id': pret.id}) }}" class="text-indigo-600 hover:text-indigo-900">Rappel</a>
 									</td>
 								</tr>
 							{% else %}
@@ -58,42 +59,42 @@
 		</div>
 	</div>
 	{# <h1>Pret index</h1>
-			
-				<table class="table">
-					<thead>
-						<tr>
-							<th>Id</th>
-							<th>User_name</th>
-							<th>Date_pret</th>
-							<th>Date_rendu</th>
-							<th>En pret</th>
-							<th>actions</th>
-						</tr>
-					</thead>
-					<tbody>
-						{% for pret in prets %}
-							<tr>
-								<td>{{ pret.id }}</td>
-								<td>{{ pret.userName }}</td>
-								<td>{{ pret.datePret ? pret.datePret|date('Y-m-d') : '' }}</td>
-								<td>{{ pret.dateRendu ? pret.dateRendu|date('Y-m-d') : '' }}</td>
-								{% if pret.status == false %}
-									<td>Non</td>
-								{% else %}
-									<td>Oui</td>
-								{% endif %}
-								<td>
-									<a href="{{ path('app_pret_show', {'id': pret.id}) }}">show</a>
-									<a href="{{ path('app_pret_edit', {'id': pret.id}) }}">edit</a>
-								</td>
-							</tr>
-						{% else %}
-							<tr>
-								<td colspan="5">no records found</td>
-							</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-			
-				<a href="{{ path('app_pret_new') }}">Create new</a> #}
+						
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>User_name</th>
+										<th>Date_pret</th>
+										<th>Date_rendu</th>
+										<th>En pret</th>
+										<th>actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for pret in prets %}
+										<tr>
+											<td>{{ pret.id }}</td>
+											<td>{{ pret.userName }}</td>
+											<td>{{ pret.datePret ? pret.datePret|date('Y-m-d') : '' }}</td>
+											<td>{{ pret.dateRendu ? pret.dateRendu|date('Y-m-d') : '' }}</td>
+											{% if pret.status == false %}
+												<td>Non</td>
+											{% else %}
+												<td>Oui</td>
+											{% endif %}
+											<td>
+												<a href="{{ path('app_pret_show', {'id': pret.id}) }}">show</a>
+												<a href="{{ path('app_pret_edit', {'id': pret.id}) }}">edit</a>
+											</td>
+										</tr>
+									{% else %}
+										<tr>
+											<td colspan="5">no records found</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						
+							<a href="{{ path('app_pret_new') }}">Create new</a> #}
 {% endblock %}

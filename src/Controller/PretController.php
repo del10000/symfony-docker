@@ -117,6 +117,23 @@ class PretController extends AbstractController
         ]);
     }
 
+    #[Route('/rappel/{id?}', name: 'app_pret_rappel', methods: ['GET'])]
+    public function rappel(Pret $pret, MailerService $mailer)
+    {
+        $emprunt = $pret->getDatePret()->format('d-m-Y');
+        $rendu = $pret->getDateRendu()->format('d-m-Y');
+        $matos = $pret->getMateriel()->getNom();
+        $destinataire = $pret->getUserMail();
+        $objet = 'Rappel';
+        $message = "Vous avez empruntez un $matos le $emprunt. N'oubliez pas de le rendre au plus tard le $rendu";
+
+        $mailer->sendEmail($destinataire, $objet, $message);
+
+        return $this->render('pret/rappel.html.twig', [
+            'pret' => $pret,
+        ]);
+    }
+
     #[Route('/{id?}', name: 'app_pret_delete', methods: ['POST'])]
     public function delete(Request $request, Pret $pret, PretRepository $pretRepository): Response
     {
