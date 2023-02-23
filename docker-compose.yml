@@ -8,7 +8,7 @@ services:
       args:
         SYMFONY_VERSION: ${SYMFONY_VERSION:-}
         STABILITY: ${STABILITY:-stable}
-    image: delphin1/crud_php:1
+    image: delphin1/crud_php:1.1
     restart: unless-stopped
     volumes:
       - php_socket:/var/run/php
@@ -25,7 +25,7 @@ services:
     build:
       context: .
       target: app_caddy
-    image: delphin1/crud_caddy:1
+    image: delphin1/crud_caddy:1.1
     depends_on:
       - php
     environment:
